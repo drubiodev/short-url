@@ -28,14 +28,14 @@ jobs:
                 tenant-id: ${{ secrets.AZURE_TENANT_ID }}
                 subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
 
-            - uses: azure/CLI@v2
+            - uses: Azure/cli@v2.1.0
               with:
                 inlineScript: |
                     #!/bin/bash
                     az group create --name ${{vars.RESOURCE_GROUP_NAME}} --location ${{vars.RESOURCE_GROUP_LOCATION}}
                     echo "Azure resource group created"
             - name: Deploy
-              uses: azure/arm-deploy@vw
+              uses: Azure/arm-deploy@v2
               with:
                 resourceGroupName: ${{vars.RESOURCE_GROUP_NAME}} 
                 template: ./infrastructure/main.bicep
