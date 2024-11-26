@@ -37,3 +37,8 @@ az ad sp create-for-rbac --name "Github-Actions-SP" --role contributor --scopes 
 ### Configure Federated Credentials
 
 search on how to add FIC to your app
+
+### Get name of publish profile for web app
+```bash
+az webapp deployment list-publishing-profiles --name <NAME_OF_APP> --resource-group <NAME_OF_RESOURCEGROUP> --xml
+```
