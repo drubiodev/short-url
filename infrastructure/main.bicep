@@ -1,38 +1,39 @@
-param location string = resourceGroup().location // getting location of the resource group
+param location string = resourceGroup().location
 
-var id = uniqueString(resourceGroup().id)
+var uniqueId = uniqueString(resourceGroup().id)
 
 module keyVault 'modules/secrets/keyvault.bicep' = {
   name: 'keyVaultDeployment'
   params: {
+    vaultName: 'kv-${uniqueId}'
     location: location
-    vaultName: 'kv-${id}'
   }
 }
 
 module apiService 'modules/compute/appservice.bicep' = {
   name: 'apiDeployment'
   params: {
+    appName: 'api-${uniqueId}'
+    appServicePlanName: 'plan-api-${uniqueId}'
     location: location
-    appServicePlanName: 'plan-api-${id}'
-    appName: 'api-${id}'
-    keyvaultName: keyVault.outputs.name
+    keyVaultName: keyVault.outputs.name
   }
   dependsOn: [
     keyVault
   ]
 }
 
-module keyVaultRoleAssignment 'modules/secrets/keyvault-role-assignment.bicep' = {
+module keyVaultRoleAssignment 'modules/secrets/key-vault-role-assignment.bicep' = {
   name: 'keyVaultRoleAssignmentDeployment'
   params: {
     keyVaultName: keyVault.outputs.name
     principalIds: [
       apiService.outputs.principalId
+      // Add more principal IDs as needed
     ]
   }
   dependsOn: [
-    apiService
+    keyVault
     apiService
   ]
 }
