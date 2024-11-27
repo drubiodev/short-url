@@ -4,9 +4,9 @@ public class TokenProvider
 {
   private readonly object _tokenLock = new();
 
-  private int _token = 0;
+  private long _token = 0;
   private TokenRange? _tokenRange;
-  public void AssignRange(int start, int end)
+  public void AssignRange(long start, long end)
   {
     AssignRange(new TokenRange(start, end));
   }
@@ -17,7 +17,7 @@ public class TokenProvider
     _token = tokenRange.Start;
   }
 
-  public int GetToken()
+  public long GetToken()
   {
     lock (_tokenLock)
     {

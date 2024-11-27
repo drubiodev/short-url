@@ -2,7 +2,7 @@ namespace ShortUrl.Core;
 
 public record TokenRange
 {
-  public TokenRange(int start, int end)
+  public TokenRange(long start, long end)
   {
     if (end < start)
       throw new ArgumentException("End must be greater than or equal to start");
@@ -11,6 +11,6 @@ public record TokenRange
     End = end;
   }
 
-  public int Start { get; }
-  public int End { get; }
+  public long Start { get; }
+  public long End { get; }
 }
