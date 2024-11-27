@@ -8,10 +8,10 @@
 az login
 ```
 
-## Create a Resource Group
+## Create a Resource Group run bicep file
 
 ```bash
-az deployment group create --resource-group shorturl-dev-rg --template-file infrastructure\main.bicep
+az deployment group create --resource-group shorturl-rg-dev --template-file infrastructure/main.bicep
 ```
 
 ### Deploy bicep script
@@ -26,6 +26,12 @@ result will be a prediction what will happen
 
 ```bash
 az deployment group what-if --resource-group shorturl-dev-rg --template-file infrastructure\main.bicep
+```
+### Apply to custom role
+used for writing roles when setting up azure in github actions
+
+```bash
+az ad sp create-for-rbac --name "Github-Actions-SP" --role infra_deploy --scopes /subscriptions/<SUBSCRIPTION_ID> --sdk-auth
 ```
 
 ### Create user fot GitHub Actions
