@@ -8,10 +8,10 @@
 az login
 ```
 
-## Create a Resource Group
+## Create a Resource Group run bicep file
 
 ```bash
-az deployment group create --resource-group shorturl-dev-rg --template-file infrastructure\main.bicep
+az deployment group create --resource-group shorturl-rg-dev --template-file infrastructure/main.bicep
 ```
 
 ### Deploy bicep script
