@@ -1,8 +1,5 @@
 namespace ShortUrl.Core.Urls.Add;
-public interface IUrlDataStore
-{
-  Task AddAsync(ShortenedUrl shortenedUrl, CancellationToken cancellationToken);
-}
+
 public class AddUrlHandler
 {
   private readonly ShortUrlGenerator _shortUrlGenerator;
