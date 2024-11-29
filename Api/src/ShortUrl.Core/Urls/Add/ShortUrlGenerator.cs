@@ -1,6 +1,6 @@
 using ShortUrl.Core.Extensions;
 
-namespace ShortUrl.Core;
+namespace ShortUrl.Core.Urls.Add;
 
 public class ShortUrlGenerator
 {

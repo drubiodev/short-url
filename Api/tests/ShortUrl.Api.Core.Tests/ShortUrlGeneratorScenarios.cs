@@ -1,5 +1,6 @@
 using FluentAssertions;
 using ShortUrl.Core;
+using ShortUrl.Core.Urls.Add;
 
 namespace ShortUrl.Api.Core.Tests;
 

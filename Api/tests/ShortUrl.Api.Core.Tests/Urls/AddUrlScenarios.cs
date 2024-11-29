@@ -4,7 +4,7 @@ using ShortUrl.Api.Core.Tests.TestDoubles;
 using ShortUrl.Core;
 using ShortUrl.Core.Urls.Add;
 
-namespace ShortUrl.Api.Core.Tests;
+namespace ShortUrl.Api.Core.Tests.Urls;
 
 public class AddUrlScenarios
 {
