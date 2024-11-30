@@ -1,5 +1,6 @@
 using System.Net;
 using FluentAssertions;
+using Microsoft.Extensions.Time.Testing;
 using ShortUrl.Api.Core.Tests.TestDoubles;
 using ShortUrl.Core;
 using ShortUrl.Core.Urls.Add;
@@ -10,13 +11,15 @@ public class AddUrlScenarios
 {
   private readonly AddUrlHandler _handler;
   private readonly InMemoryUrlDataStore _urlDataStore = new();
+  private readonly FakeTimeProvider _timeProvider;
 
   public AddUrlScenarios()
   {
     var tokenProvider = new TokenProvider();
     tokenProvider.AssignRange(1, 5);
     var shortUrlGenerator = new ShortUrlGenerator(tokenProvider);
-    _handler = new AddUrlHandler(shortUrlGenerator, _urlDataStore);
+    _timeProvider = new FakeTimeProvider();
+    _handler = new AddUrlHandler(shortUrlGenerator, _urlDataStore, _timeProvider);
   }
 
   [Fact]
@@ -40,6 +43,18 @@ public class AddUrlScenarios
     _urlDataStore.Should().ContainKey(response.ShortUrl);
   }
 
+  [Fact]
+  public async Task Should_save_short_url_with_created_by_and_created_on()
+  {
+    var request = CreateAddUrlRequest();
+
+    var response = await _handler.HandleAsync(request, default);
+
+    _urlDataStore.Should().ContainKey(response.ShortUrl);
+    _urlDataStore[response.ShortUrl].CreatedBy.Should().Be(request.CreatedBy);
+    _urlDataStore[response.ShortUrl].CreatedOn.Should().Be(_timeProvider.GetUtcNow());
+  }
+
   private static AddUrlRequest CreateAddUrlRequest() =>
-    new AddUrlRequest(new Uri("https://www.microsoft.com"));
+    new AddUrlRequest(new Uri("https://www.microsoft.com"), "user@user.com");
 }
