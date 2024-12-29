@@ -7,7 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{C16AD7A0-A2D
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{21C54E95-D434-4D5E-80EE-90A1EC3D9699}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "short-url.api", "Api\src\short-url.api\short-url.api.csproj", "{0276D816-5A84-4A3B-9AD2-2FB655F57C81}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShortUrl.API", "Api\src\ShortUrl.API\ShortUrl.API.csproj", "{0276D816-5A84-4A3B-9AD2-2FB655F57C81}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{F7802B4F-A7F7-42DB-A43E-C8AC6F354D47}"
 EndProject

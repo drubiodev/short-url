@@ -55,6 +55,13 @@ public class AddUrlScenarios
     _urlDataStore[response.ShortUrl].CreatedOn.Should().Be(_timeProvider.GetUtcNow());
   }
 
-  private static AddUrlRequest CreateAddUrlRequest() =>
-    new AddUrlRequest(new Uri("https://www.microsoft.com"), "user@user.com");
+  [Fact]
+  public async Task Should_return_error_if_created_by_is_empty()
+  {
+    var request = CreateAddUrlRequest(string.Empty);
+    var response = await _handler.HandleAsync(request, default);
+  }
+
+  private static AddUrlRequest CreateAddUrlRequest(string createdBy = "user@user.com") =>
+    new AddUrlRequest(new Uri("https://www.microsoft.com"), createdBy);
 }
