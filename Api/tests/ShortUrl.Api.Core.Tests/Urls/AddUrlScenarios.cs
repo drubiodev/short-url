@@ -29,8 +29,8 @@ public class AddUrlScenarios
 
     var response = await _handler.HandleAsync(request, default);
 
-    response.ShortUrl.Should().NotBeNullOrEmpty();
-    response.ShortUrl.Should().Be("1");
+    response.Value!.ShortUrl.Should().NotBeNullOrEmpty();
+    response.Value!.ShortUrl.Should().Be("1");
   }
 
   [Fact]
@@ -40,7 +40,8 @@ public class AddUrlScenarios
 
     var response = await _handler.HandleAsync(request, default);
 
-    _urlDataStore.Should().ContainKey(response.ShortUrl);
+    response.Succeeded.Should().BeTrue();
+    _urlDataStore.Should().ContainKey(response.Value!.ShortUrl);
   }
 
   [Fact]
@@ -50,9 +51,9 @@ public class AddUrlScenarios
 
     var response = await _handler.HandleAsync(request, default);
 
-    _urlDataStore.Should().ContainKey(response.ShortUrl);
-    _urlDataStore[response.ShortUrl].CreatedBy.Should().Be(request.CreatedBy);
-    _urlDataStore[response.ShortUrl].CreatedOn.Should().Be(_timeProvider.GetUtcNow());
+    _urlDataStore.Should().ContainKey(response.Value!.ShortUrl);
+    _urlDataStore[response.Value!.ShortUrl].CreatedBy.Should().Be(request.CreatedBy);
+    _urlDataStore[response.Value!.ShortUrl].CreatedOn.Should().Be(_timeProvider.GetUtcNow());
   }
 
   [Fact]
@@ -60,6 +61,9 @@ public class AddUrlScenarios
   {
     var request = CreateAddUrlRequest(string.Empty);
     var response = await _handler.HandleAsync(request, default);
+
+    response.Succeeded.Should().BeFalse();
+    response.Error.Code.Should().Be("missing_value");
   }
 
   private static AddUrlRequest CreateAddUrlRequest(string createdBy = "user@user.com") =>
