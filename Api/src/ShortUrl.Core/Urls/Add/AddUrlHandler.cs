@@ -17,7 +17,7 @@ public class AddUrlHandler
   {
     if (string.IsNullOrWhiteSpace(request.CreatedBy))
     {
-      return new Error("missing_value", "CreatedBy is required");
+      return Errors.MissingCreatedBy;
     }
 
     var shortenedUrl = new ShortenedUrl(request.Url, _shortUrlGenerator.GenerateUniqueUrl(), request.CreatedBy, _timeProvider.GetUtcNow());

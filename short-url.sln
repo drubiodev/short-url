@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShortUrl.Api.Core.Tests", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShortUrl.Core", "Api\src\ShortUrl.Core\ShortUrl.Core.csproj", "{E500547A-6340-4DCE-BCF9-2E045A2BF9E4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShortUrl.Api.Tests", "Api\tests\ShortUrl.Api.Tests\ShortUrl.Api.Tests.csproj", "{57ED28A0-3879-40C5-9012-4072A88CAC1E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{E500547A-6340-4DCE-BCF9-2E045A2BF9E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E500547A-6340-4DCE-BCF9-2E045A2BF9E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E500547A-6340-4DCE-BCF9-2E045A2BF9E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57ED28A0-3879-40C5-9012-4072A88CAC1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57ED28A0-3879-40C5-9012-4072A88CAC1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57ED28A0-3879-40C5-9012-4072A88CAC1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57ED28A0-3879-40C5-9012-4072A88CAC1E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -43,5 +49,6 @@ Global
 		{F7802B4F-A7F7-42DB-A43E-C8AC6F354D47} = {C16AD7A0-A2DC-4958-9904-4A2208B3CF60}
 		{0BE724AF-B9D0-49A2-BBF4-7B009D2E560D} = {F7802B4F-A7F7-42DB-A43E-C8AC6F354D47}
 		{E500547A-6340-4DCE-BCF9-2E045A2BF9E4} = {21C54E95-D434-4D5E-80EE-90A1EC3D9699}
+		{57ED28A0-3879-40C5-9012-4072A88CAC1E} = {F7802B4F-A7F7-42DB-A43E-C8AC6F354D47}
 	EndGlobalSection
 EndGlobal
