@@ -1,6 +1,11 @@
 @short_url_HostAddress = http://localhost:5015
 
 POST {{short_url_HostAddress}}/api/urls/
-Accept: application/json
+Content-Type: application/json
+
+{
+  "url": "https://example.com",
+  "createdBy": "system"
+}
 
 ###
