@@ -2,7 +2,7 @@ using ShortUrl.Core;
 using ShortUrl.Core.Urls;
 using ShortUrl.Core.Urls.Add;
 
-namespace short_url.Extensions;
+namespace ShortUrl.Extensions;
 
 public static class ServiceCollectionExtensions
 {
@@ -16,19 +16,19 @@ public static class ServiceCollectionExtensions
       return tokenProvider;
     });
     services.AddScoped<ShortUrlGenerator>();
-    services.AddSingleton<IUrlDataStore, InMemoryUrlDataStore>();
+    // services.AddSingleton<IUrlDataStore, InMemoryUrlDataStore>();
 
     return services;
   }
 
-  private class InMemoryUrlDataStore : Dictionary<string, ShortenedUrl>, IUrlDataStore
-  {
-    public Task AddAsync(ShortenedUrl shortenedUrl, CancellationToken cancellationToken)
-    {
-      Add(shortenedUrl.ShortUrl, shortenedUrl);
+  // private class InMemoryUrlDataStore : Dictionary<string, ShortenedUrl>, IUrlDataStore
+  // {
+  //   public Task AddAsync(ShortenedUrl shortenedUrl, CancellationToken cancellationToken)
+  //   {
+  //     Add(shortenedUrl.ShortUrl, shortenedUrl);
 
-      return Task.CompletedTask;
-    }
-  }
+  //     return Task.CompletedTask;
+  //   }
+  // }
 
 }

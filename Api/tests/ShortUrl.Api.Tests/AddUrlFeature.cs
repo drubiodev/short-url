@@ -13,7 +13,7 @@ public class AddUrlFeature : IClassFixture<ApiFixture>
   }
 
   [Fact]
-  public async Task Given_long_url_Should_return_short_url()
+  public async Task Given_long_url_Should_return_ShortUrl()
   {
     var response = await _client.PostAsJsonAsync<AddUrlRequest>("/api/urls", new AddUrlRequest(new Uri("https://example.com"), "test"));
 

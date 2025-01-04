@@ -1,6 +1,6 @@
-@short_url_HostAddress = http://localhost:5015
+@ShortUrl_HostAddress = http://localhost:5015
 
-POST {{short_url_HostAddress}}/api/urls/
+POST {{ShortUrl_HostAddress}}/api/urls/
 Content-Type: application/json
 
 {

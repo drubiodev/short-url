@@ -7,7 +7,7 @@ namespace ShortUrl.Api.Core.Tests;
 public class ShortUrlGeneratorScenarios
 {
   [Fact]
-  public void Should_return_short_url_for_10001()
+  public void Should_return_ShortUrl_for_10001()
   {
     var tokenProvider = new TokenProvider();
     tokenProvider.AssignRange(10001, 20000);
@@ -19,7 +19,7 @@ public class ShortUrlGeneratorScenarios
   }
 
   [Fact]
-  public void Should_return_short_url_for_zero()
+  public void Should_return_ShortUrl_for_zero()
   {
     var tokenProvider = new TokenProvider();
     tokenProvider.AssignRange(0, 10);

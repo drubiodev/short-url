@@ -1,6 +1,7 @@
 using Azure.Identity;
-using short_url.Extensions;
+using ShortUrl.Extensions;
 using ShortUrl.Core.Urls.Add;
+using ShortUrl.Infrastructure.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,7 +20,9 @@ builder.Services.AddOpenApi();
 
 // Services
 builder.Services.AddSingleton(TimeProvider.System); // will use the system time provider
-builder.Services.AddUrlFeatures();
+builder.Services
+    .AddUrlFeatures()
+    .AddCosmosUrlDataStore(builder.Configuration);
 
 var app = builder.Build();
 

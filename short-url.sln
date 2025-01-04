@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShortUrl.Core", "Api\src\Sh
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShortUrl.Api.Tests", "Api\tests\ShortUrl.Api.Tests\ShortUrl.Api.Tests.csproj", "{57ED28A0-3879-40C5-9012-4072A88CAC1E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShortUrl.Infrastructure", "Api\src\ShortUrl.Infrastructure\ShortUrl.Infrastructure.csproj", "{8F3D8DEE-23EB-4F34-A425-A8615A8B9F36}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{57ED28A0-3879-40C5-9012-4072A88CAC1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{57ED28A0-3879-40C5-9012-4072A88CAC1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{57ED28A0-3879-40C5-9012-4072A88CAC1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F3D8DEE-23EB-4F34-A425-A8615A8B9F36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F3D8DEE-23EB-4F34-A425-A8615A8B9F36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F3D8DEE-23EB-4F34-A425-A8615A8B9F36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F3D8DEE-23EB-4F34-A425-A8615A8B9F36}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,5 +56,6 @@ Global
 		{0BE724AF-B9D0-49A2-BBF4-7B009D2E560D} = {F7802B4F-A7F7-42DB-A43E-C8AC6F354D47}
 		{E500547A-6340-4DCE-BCF9-2E045A2BF9E4} = {21C54E95-D434-4D5E-80EE-90A1EC3D9699}
 		{57ED28A0-3879-40C5-9012-4072A88CAC1E} = {F7802B4F-A7F7-42DB-A43E-C8AC6F354D47}
+		{8F3D8DEE-23EB-4F34-A425-A8615A8B9F36} = {21C54E95-D434-4D5E-80EE-90A1EC3D9699}
 	EndGlobalSection
 EndGlobal

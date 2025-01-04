@@ -1,4 +1,4 @@
-namespace short_url;
+namespace ShortUrl;
 
 public interface IApiAssemblyMarker
 {

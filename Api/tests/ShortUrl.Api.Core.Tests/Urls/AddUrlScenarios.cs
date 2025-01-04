@@ -23,7 +23,7 @@ public class AddUrlScenarios
   }
 
   [Fact]
-  public async Task Should_return_short_url()
+  public async Task Should_return_ShortUrl()
   {
     var request = CreateAddUrlRequest();
 
@@ -34,7 +34,7 @@ public class AddUrlScenarios
   }
 
   [Fact]
-  public async Task Should_save_short_url()
+  public async Task Should_save_ShortUrl()
   {
     var request = CreateAddUrlRequest();
 
@@ -45,7 +45,7 @@ public class AddUrlScenarios
   }
 
   [Fact]
-  public async Task Should_save_short_url_with_created_by_and_created_on()
+  public async Task Should_save_ShortUrl_with_created_by_and_created_on()
   {
     var request = CreateAddUrlRequest();
 
