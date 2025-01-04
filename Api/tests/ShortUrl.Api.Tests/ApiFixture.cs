@@ -1,9 +1,10 @@
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Extensions.DependencyInjection;
 using ShortUrl.Core.Urls;
 using ShortUrl.Core.Urls.Add;
 using ShortUrl.Api.Tests.Extensions;
+using Microsoft.AspNetCore.TestHost;
+using Microsoft.AspNetCore.Mvc.Testing;
 
 namespace ShortUrl.Api.Tests;
 
@@ -12,7 +13,7 @@ public class ApiFixture : WebApplicationFactory<IApiAssemblyMarker>
 {
   override protected void ConfigureWebHost(IWebHostBuilder builder)
   {
-    builder.ConfigureServices(services =>
+    builder.ConfigureTestServices(services =>
     {
       services.Remove<IUrlDataStore>();
       services.AddSingleton<IUrlDataStore>(new InMemoryUrlDataStore());
