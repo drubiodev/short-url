@@ -27,7 +27,7 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
     - name: dotnet publish
-      run: dotnet publish short-url.api -c Release -o ${{env.DOTNET_ROOT}}/app
+      run: dotnet publish Api/src/ShortUrl.API -c Release -o ${{env.DOTNET_ROOT}}/app
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:

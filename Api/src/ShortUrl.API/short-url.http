@@ -1,0 +1,11 @@
+@ShortUrl_HostAddress = http://localhost:5015
+
+POST {{ShortUrl_HostAddress}}/api/urls/
+Content-Type: application/json
+
+{
+  "url": "https://example.com",
+  "createdBy": "system"
+}
+
+###
