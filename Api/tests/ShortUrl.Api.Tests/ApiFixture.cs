@@ -11,13 +11,19 @@ namespace ShortUrl.Api.Tests;
 // WebApplicationFactory creates an in-memory test server for integration testing
 public class ApiFixture : WebApplicationFactory<IApiAssemblyMarker>
 {
-  override protected void ConfigureWebHost(IWebHostBuilder builder)
+  protected override void ConfigureWebHost(IWebHostBuilder builder)
   {
-    builder.ConfigureTestServices(services =>
-    {
-      services.Remove<IUrlDataStore>();
-      services.AddSingleton<IUrlDataStore>(new InMemoryUrlDataStore());
-    });
+    builder.ConfigureTestServices(
+        services =>
+        {
+          services.Remove<IUrlDataStore>();
+          services
+                  .AddSingleton<IUrlDataStore>(
+                      new InMemoryUrlDataStore());
+        }
+    );
+
+    base.ConfigureWebHost(builder);
   }
 }
 
@@ -26,7 +32,6 @@ public class InMemoryUrlDataStore : Dictionary<string, ShortenedUrl>, IUrlDataSt
   public Task AddAsync(ShortenedUrl shortenedUrl, CancellationToken cancellationToken)
   {
     Add(shortenedUrl.ShortUrl, shortenedUrl);
-
     return Task.CompletedTask;
   }
 }

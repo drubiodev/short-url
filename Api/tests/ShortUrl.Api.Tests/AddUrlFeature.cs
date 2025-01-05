@@ -1,3 +1,4 @@
+using System.Net;
 using System.Net.Http.Json;
 using FluentAssertions;
 using ShortUrl.Core.Urls.Add;
@@ -17,8 +18,7 @@ public class AddUrlFeature : IClassFixture<ApiFixture>
   {
     var response = await _client.PostAsJsonAsync<AddUrlRequest>("/api/urls", new AddUrlRequest(new Uri("https://example.com"), "test"));
 
-    response.StatusCode.Should().Be(System.Net.HttpStatusCode.Created);
-
+    response.StatusCode.Should().Be(HttpStatusCode.Created);
     var addUrlResponse = await response.Content.ReadFromJsonAsync<AddUrlResponse>();
     addUrlResponse!.ShortUrl.Should().NotBeNull();
   }
