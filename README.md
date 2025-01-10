@@ -51,4 +51,4 @@ az webapp deployment list-publishing-profiles --name <NAME_OF_APP> --resource-gr
 
 #### Keyvault deployment issues
 
-in portal go to keyvaults and managed deleted vaults to purge
+in portal go to keyvaults and managed deleted vaults to purge can take about 10min
