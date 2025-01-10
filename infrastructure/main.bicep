@@ -46,7 +46,7 @@ module postgres 'modules/storage/postgresql.bicep' = {
   name: 'postgresDeployment'
   params: {
     name: 'postgresql-${uniqueString(resourceGroup().id)}'
-    location: location
+    location: 'East US 2'
     administratorLogin: 'adminuser'
     administratorLoginPassword: pgSqlPassword
     keyVaultName: keyVault.outputs.name
