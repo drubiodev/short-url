@@ -34,7 +34,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapGet("/", () => "Hello World!");
+app.MapGet("/", () => "ShortUrl API")
+    .WithName("ShortUrlApi");
 
 app.MapPost("/api/urls", async (AddUrlRequest request, AddUrlHandler handler, CancellationToken cancellationToken) =>
 {
