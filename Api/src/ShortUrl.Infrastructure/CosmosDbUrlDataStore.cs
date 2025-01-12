@@ -2,6 +2,7 @@ using ShortUrl.Core.Urls;
 using ShortUrl.Core.Urls.Add;
 using Microsoft.Azure.Cosmos;
 using System.Text.Json.Serialization;
+using Newtonsoft.Json;
 
 namespace ShortUrl.Infrastructure;
 
@@ -24,7 +25,7 @@ public class CosmosDbUrlDataStore : IUrlDataStore
 internal class ShortenedUrlCosmos
 {
   public string LongUrl { get; }
-  [JsonPropertyName("id")]
+  [JsonProperty(PropertyName = "id")] // Cosmos DB Unique Identifier
   public string ShortUrl { get; }
   public DateTimeOffset CreatedOn { get; }
   public string CreatedBy { get; }

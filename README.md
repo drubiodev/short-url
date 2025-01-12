@@ -48,3 +48,7 @@ search on how to add FIC to your app
 ```bash
 az webapp deployment list-publishing-profiles --name <NAME_OF_APP> --resource-group <NAME_OF_RESOURCEGROUP> --xml
 ```
+
+#### Keyvault deployment issues
+
+in portal go to keyvaults and managed deleted vaults to purge can take about 10min
