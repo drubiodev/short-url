@@ -48,7 +48,7 @@ jobs:
     - name: Download artifact
       uses: actions/download-artifact@v4
       with:
-        name: .net API
+        name: .net TokenRangeService
 
     - name: Deploy to Azure Web App (Development)
       uses: azure/webapps-deploy@v3
