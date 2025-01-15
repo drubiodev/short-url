@@ -1,8 +1,12 @@
+using ShortUrl.TokenRangeService;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+builder.Services.AddSingleton(
+    new TokenRangeManager(builder.Configuration["Postgres:ConnectionString"]!));
 
 var app = builder.Build();
 
@@ -14,7 +18,15 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapGet("/", () => "TokenRange Service")
-.WithName("TokenRangeService");
+app.MapGet("/", () => "TokenRange Service");
+
+
+app.MapPost("/assign", async (AssignTokenRangeRequest request, TokenRangeManager manager) =>
+{
+    var range = await manager.AssignRangeAsync(request.Key);
+
+    return range;
+})
+.WithName("TokenRangeService"); ;
 
 app.Run();
